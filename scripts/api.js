@@ -10,7 +10,7 @@ const config = {
 Firebase.initializeApp(config);
 const database = Firebase.database();
 
-export function getIssues() {
+export function getCountries() {
   return database.ref().once('value').then(function(data) {
     return data.val();
   });

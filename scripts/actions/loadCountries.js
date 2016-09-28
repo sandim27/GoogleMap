@@ -1,9 +1,9 @@
-import {getIssues} from '../api';
+import {getCountries} from '../api';
 
-export function loadCountries() {
+export default function loadCountries() {
   return {
     type: 'PROMISE',
-    actions: ['ISSUES_LOADING', 'ISSUES_LOADED', 'ISSUES_LOAD_FAILURE'],
-    promise: getIssues()
+    actions: ['COUNTRIES_LOADING', 'COUNTRIES_LOADED', 'COUNTRIES_LOAD_FAILURE'],
+    promise: getCountries()
   };
 };

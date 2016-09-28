@@ -1,11 +1,8 @@
-import counters from './counters';
-import issues from './issues';
-import repository from './repository';
+import countries from './countries';
 import details from './details';
+import showInfo from './showInfo';
 
-export {counters};
-export {issues};
-export {repository};
+export {countries};
 export {details};
-
+export {showInfo};
 

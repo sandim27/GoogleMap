@@ -1,10 +1,10 @@
 import { default as React, Component } from 'react';
 
-export default class DescriptionCountry extends Component {
-  render() {
-    const details = this.props.details;
+export default class Description extends Component {
+
+  renderDescription(details) {
     return (
-       <div>
+        <section>
           <h1>Description</h1>
           <ul className='list-group'>
             <li className='list-group-item' key={details.name}>Country - <b>{details.name}</b></li>
@@ -14,8 +14,17 @@ export default class DescriptionCountry extends Component {
             <li className='list-group-item' key={details.population}><b>Population - {details.population}</b></li>
             <li className='list-group-item' key={details.callingCodes}>Calling Code - +<b>{details.callingCodes}..</b></li>
             <li className='list-group-item' key={details.capital}>Capital - <b>{details.capital}</b></li>
-          </ul>
-       </div>
+           </ul>
+        </section>
+     );
+  }
+
+  render() {
+    const {details} = this.props;
+    return (
+        <div className='description'>
+          {details.name ? this.renderDescription(details) : null}
+        </div>
     );
   }
 };
