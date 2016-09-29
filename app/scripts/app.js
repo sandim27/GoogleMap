@@ -5,6 +5,9 @@ import {Router, Route, IndexRoute} from 'react-router';
 import { Provider } from 'react-redux';
 import store,{history} from './store';
 
+//import styles
+import '../styles/index.scss';
+
 //import components
 import Main from './components/Main';
 import Description from './components/Description';

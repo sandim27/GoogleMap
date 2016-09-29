@@ -33,17 +33,19 @@ export default class Map extends Component {
       showInfo:showInfo
     };
     return (
-      <GoogleMapLoader
-        query={{libraries: 'geometry,drawing,places' }}
-        containerElement={<div style={{ height: '500px', }}/>}
-        googleMapElement={
-          <GoogleMap containerProps={{style: { height: '500px' }}} zoom = {marker.key?4:3} center={{ lat: marker.position.lat, lng:marker.position.lng }}>
-            <Marker position = {marker.key?marker.position:null} onClick={this.handleMarkerClick.bind(this, marker)} >
-              {marker.showInfo ? this.renderInfoWindow(marker) : null}
-            </Marker>
-          </GoogleMap>
-        }
-      />
+      <section className='map-content'>
+        <GoogleMapLoader
+          query={{libraries: 'geometry,drawing,places' }}
+          containerElement={<div style={{ height: '500px', }}/>}
+          googleMapElement={
+            <GoogleMap containerProps={{style: { height: '500px' }}} zoom = {marker.key?4:3} center={{ lat: marker.position.lat, lng:marker.position.lng }}>
+              <Marker position = {marker.key?marker.position:null} onClick={this.handleMarkerClick.bind(this, marker)} >
+                {marker.showInfo ? this.renderInfoWindow(marker) : null}
+              </Marker>
+            </GoogleMap>
+          }
+        />
+      </section>
     );
   }
 };

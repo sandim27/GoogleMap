@@ -5,4 +5,3 @@ import showInfo from './showInfo';
 export {countries};
 export {details};
 export {showInfo};
-

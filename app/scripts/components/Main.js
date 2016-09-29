@@ -30,7 +30,7 @@ function mapStateToProps(state) {
   return {
     countries: state.countries,
     details: state.details,
-    showInfo: state.showInfo,
+    showInfo: state.showInfo
   };
 };
 

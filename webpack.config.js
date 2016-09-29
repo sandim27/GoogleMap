@@ -1,21 +1,23 @@
 var path = require('path')
 var webpack = require('webpack')
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: 'cheap-source-map',
     entry: [
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
-        './scripts/app'
+        './app/scripts/app'
     ],
     output: {
         path: __dirname,
         filename: 'bundle.js',
-        //publicPath: '/static/'
+        publicPath: '/'
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin('styles.css',{allChunks:true})
     ],
     devServer: {
         contentBase: __dirname,
@@ -27,22 +29,26 @@ module.exports = {
                 test: /\.js$/,
                 loaders: ['eslint'],
                 include: [
-                    path.resolve(__dirname, "scripts"),
+                    path.resolve(__dirname, "app/scripts"),
                 ],
             }
         ],
         loaders: [
-            {
+            {   test: /\.js$/,
                 loaders: ['react-hot', 'babel-loader'],
                 include: [
-                    path.resolve(__dirname, "scripts"),
+                    path.resolve(__dirname, "app/scripts"),
                 ],
                 test: /\.js$/,
                 plugins: ['transform-runtime'],
             },
             {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!resolve-url!sass-loader?sourceMap')
+            },
+            {
                 test: /\.css$/,
-                loader: 'style!css',
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
             }
         ]
     }
