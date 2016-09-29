@@ -11,6 +11,10 @@
       "react"
     ]
   },
+  "scripts":{
+    "build": "webpack --config webpack.config.prod.js --progress --profile --colors --inline ",
+    "start": "webpack-dev-server --config webpack.config.dev.js --progress --colors  --inline --hot"
+  },
   "dependencies": {
     "babel-loader": "^6.2.5",
     "babel-polyfill": "^6.13.0",
