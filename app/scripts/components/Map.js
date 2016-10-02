@@ -1,5 +1,6 @@
 import { default as React, Component } from 'react';
 import {GoogleMap, Marker,GoogleMapLoader,InfoWindow } from 'react-google-maps';
+
 export default class Map extends Component {
 
   renderInfoWindow(marker) {

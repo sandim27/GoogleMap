@@ -1,8 +1,8 @@
-import { default as React, Component } from 'react';
+import React from 'react';
 
-export default class Description extends Component {
+const Description = ({details}) => {
 
-  renderDescription(details) {
+  const renderDescription = () => {
     return (
         <div>
           <h2>Description of Country</h2>
@@ -17,14 +17,14 @@ export default class Description extends Component {
            </ul>
         </div>
      );
-  }
+  };
 
-  render() {
-    const {details} = this.props;
-    return (
-        <section className='description'>
-          {details.name ? this.renderDescription(details) : null}
-        </section>
-    );
-  }
+  return (
+    <section className='description'>
+      {details.name ? renderDescription() : null}
+    </section>
+  );
+
 };
+
+export default Description;
